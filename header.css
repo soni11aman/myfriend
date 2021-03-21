@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -23px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-image: url('demon.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#menubar{
+    text-align: center;
+    background-color: chocolate;
+    height: 100px;
+}
+#logo{
+    text-decoration: none;
+    width: auto;
+    font-size: 85px;
+    margin-bottom: 0px;
+    color: antiquewhite;
+}

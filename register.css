@@ -1,0 +1,70 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -23px;
+    margin-left: -12px;
+    margin-right: 0px;
+    margin-bottom: -15px;
+    background-image: url('demon.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#menubar{
+    text-align: center;
+    background-color: chocolate;
+    height: 100px;
+}
+#logo{
+    text-decoration: none;
+    width: auto;
+    font-size: 85px;
+    margin-bottom: 0px;
+    color: antiquewhite;
+}
+
+#main{
+    margin: auto;
+    width: 30%;
+    margin-top: 30px;
+    background-color: blueviolet;
+    box-shadow:10px 10px 5px grey;
+}
+#tab{
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    line-height: 35px;
+    padding-bottom: 15px;
+    width: 100%;
+    font-size: 30px;
+}
+#submit{
+    text-align: center;
+    margin-left: 150px;
+    margin-bottom: 15px;
+    width: 30%;
+    font-size: 25px;
+}
+#about{
+    margin-top: 40px;
+    padding-left: 10px;
+    text-align: left;
+    width: 100%;
+    background-color: rgb(22, 25, 36);
+    height: 110px;
+    bottom: 0;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0px;
+    border-top-style: groove;
+}
+#tble{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 50px;
+    margin-top: 15px;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color:wheat;
+}

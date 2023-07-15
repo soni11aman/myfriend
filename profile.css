@@ -1,0 +1,105 @@
+body{
+    background-color: aqua;
+    font-size: 40px;
+    margin: auto;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+.main{
+    text-align: center;
+    margin:auto;
+    font-size: 25px;
+    width: auto;
+    max-width: 400px;
+}
+.feed{
+    margin: auto;
+    max-width: 380px;
+    background-color: blanchedalmond;
+    border: 1px solid grey;
+}
+td img{
+    width: 20px;
+}
+.item{
+    width: 100%;
+    padding-top: 0;
+    font-size: 18px;
+}
+button{
+    cursor: pointer;
+}
+.left{
+    text-align: left;
+}
+.img_feed{
+    width: 360px;
+    border-radius: 0%;
+    margin: auto;
+    height: 400px;
+}
+.small_pic{
+    border-radius: 50%;
+}
+.right{
+    text-align: right;
+}
+table{
+    width: auto;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+table tr td{
+    font-size: 14px;
+    padding-left: 10px;
+    text-align: left;
+    line-height: 30px;
+}
+.like{
+    width:100%;
+}
+.like button{
+    width:180px;
+    font-size: 24px;
+    height: 30px;
+}
+.info{
+    position: relative;
+}
+table tr th img{
+    width: 30px;
+    text-align: left;
+}
+.profile{
+    text-align: center;
+    padding-top: 10px;;
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+    max-width: 200px;
+}
+.profile_pic{
+    width: 100%;
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+}
+.name{
+    width: 100%;
+    font-size: 30px;
+    margin-top: 0;
+    color: rgb(63, 35, 87);
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.center{
+    text-align: center;
+}
+.msg_btn{
+    width:100px;
+}
+ul li{
+    list-style: none;
+}

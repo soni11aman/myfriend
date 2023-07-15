@@ -1,116 +1,67 @@
-<?php 
-    include('connect.php');
+<?php
+    $con = mysqli_connect('sql100.epizy.com','epiz_27697613','utbcIPeCfQwEKi','epiz_27697613_feed');
+    $conn = mysqli_connect('sql100.epizy.com','epiz_27697613','utbcIPeCfQwEKi','epiz_27697613_chat');
     session_start();
+    $sql = "SELECT * FROM details";
+    $res = mysqli_query($conn,$sql);
+    $p = mysqli_fetch_all($res,MYSQLI_ASSOC);
     if(isset($_POST['submit'])){
-        //echo $_POST['email'];
-        $email =  $_POST['email'];
-        $username =  $_POST['username'];
-        $name =  $_POST['name'];
-        $age =  $_POST['age'];
-        $phone =  $_POST['number'];
-        $dob =  $_POST['dob'];
-        $gender =  $_POST['gender'];
-        $password =  $_POST['password'];
-        $cfm =  $_POST['cfm'];
-        $sql ="INSERT INTO details(email,phone,age,pwd,dob,username,gender,nam) VALUES('$email','$phone','$age','$password','$dob','$username','$gender','$name')";
-        $newTable = "CREATE TABLE $username( id int NOT NULL ,workname varchar(255),completed int(0) NOT NULL )";
+        $user = $_POST['username'];
+        foreach($p as $i){
+            if($user == $i['username']){
+                echo "<script> alert('Username already exists..!!'); </script>";
+                break;
+                header("Location: sign_up.php");
+            }
+        }
+        $_SESSION['name']=$user;
+        $nam = $_POST['name'];
+        $email = $_POST['email'];
+        $age = $_POST['age'];
+        $dob = $_POST['dob'];
+        $pwd = $_POST['pwd'];
+        $gender = $_POST['gender'];
+        $phone = $_POST['phone'];
+        $sql = "INSERT INTO details(nam,email,phone,age,username,dob,pwd,gender) VALUES('$nam','$email','$phone','$age','$user','$dob','$pwd','$gender')";
+        mysqli_query($conn,$sql);
+        $sql = "CREATE TABLE $user( id int NOT NULL AUTO_INCREMENT , friend varchar(255), username varchar(255), addd int(0)  , prof varchar(255) DEFAULT 'photos/default_pic.png' , talk mediumtext, PRIMARY KEY (id) ) ";
+        $ss = mysqli_query($conn,$sql);
+        $sql = "CREATE TABLE $user( id int NOT NULL AUTO_INCREMENT , caption mediumtext , likes int Default '0', coment int Default '0', pic varchar(255), prof varchar(255) Default 'photos/default_pic.png', nam varchar(255), lik mediumtext, username varchar(255), comet mediumtext, vid int, PRIMARY KEY (id) ) ";
         mysqli_query($con,$sql);
-        mysqli_query($con,$newTable);
-        //echo mysqli_query($con,$newTable);
-        $_SESSION['name']=$username;
-        $_SESSION['state']=1;
-        header('Location: user.php');
+        header("Location: user.php");
     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" name="viewport" content="width: device-width"/>
-    <title>myBook</title>
-    <link rel="stylesheet" href="signup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="sign_up.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-    <body>
-    <div id="menubar" >
-            <h1><a href="index.php" id="logo" title="Go to home page">myBook</a></h1>
-    </div>
-        <nav >
-        <a href="index.php"> Home </a>
-        <a href="Login.php">Log in</a>
-        <a href="sign_up.php">sign up</a>
-    </nav>
-        <div >
-            <form action="sign_up.php"  method="POST" id="main">
-              <table id="tab" >
-                    <tr>
-                        <th><label for="name">Name</label></th>
-                        <th><label for="username">Username</label></th>
-                    </tr>
-                    <tr>
-                        <th><input type="text" name="name" id="name" placeholder="name"></th>
-                        <th><input type="text" name="username" id="username" placeholder="username" ></th>
-                    </tr>
-                    <tr>
-                        <th><label for="email">Email</label></th>
-                    </tr>
-                    <tr >
-                        <th><input type="email" placeholder="type email" id="email" name="email"   ></th>
-                        <th id="fn"><input type="button" value="Send OTP"  style="background-color: grey;" id="cfme"></th>
-                    </tr>
-                    <tr>
-                        <th><label for="phone">Phone</label></th>
-                    </tr>
-                    <tr>
-                        <th><input type="numbers" name="number" maxlength="10" placeholder="Phone" id="phone"></th>
-                        <th id="fn2" ><input type="button" value="Send OTP" style="background-color: grey;" id="cfmp"></th>
-                    </tr>
-                    <tr>
-                        <th><label for="age">Age</label></th>
-                        <th><label for="gender">Gender</label></th>
-                    </tr>
-                    <tr>
-                        <th><input type="numbers" min="12" maxlength="3" placeholder="age" name="age"></th>
-                        <th><select name="gender" id="gender" >
+<body>
+    <div class="main">
+        <div class="sign">
+            <form action="sign_up.php" method="POST">
+                <table>
+                    <tr><td><label for="name">Full name</label></td><td><label for="username">username</label></td></tr>
+                    <tr><td><input type="text" name="name" id="" placeholder="your name.."></td><td><input type="text" name="username" placeholder="username"></td><td></td></tr>
+                    <tr><td><label for="email">Email</label></td><td><label for="phone">Phone</label></td></tr>
+                    <tr><td><input type="email" name="email" placeholder="email"></td><td><input type="number" name="phone" placeholder="phone"></td></tr>
+                    <tr><td><label for="age">Age</label></td><td><label for="dob">Dob</label></td></tr>
+                    <tr><td><input type="number" name="age" placeholder="age"></td><td><input type="date" name="dob"></td></tr>
+                    <tr><td><label for="pwd">Password</label></td><td><label for="gender">Gender</label></td></tr>
+                    <tr><td><input type="password" name="pwd" placeholder="password"></td><td><select name="gender" id="gender" >
                             <option value="male">male</option>
-                            <option value="female">female</option>
+                            <option value="female">Female</option>
                             <option value="other">other</option>
-                        </select></th>
-                    </tr>
-                    <tr>
-                        <th><label for="password">Password</label></th>
-                        <th><label for="confirm">Confirm</label></th>
-                    </tr>
-                    <tr>
-                        <th><input type="password" name="password" placeholder="password" id="password"></th>
-                        <th><input type="password" placeholder="confirm" id="confirm" name="cfm"></th>
-                    </tr>
-                    <tr>
-                        <th><label for="dob">Date of Birth</label></th>
-                    </tr>
-                    <tr>
-                        <th><input type="date" id="dob" placeholder="Date of birth" name="dob"></th>
-                    </tr>
+                        </select></td></tr>
+                    <tr><td colspan="2"><input type="submit" name="submit" value="submit"></td></tr>
                 </table>
-                <table id="submit">
-                    <tr><input type="submit" id="submit" value="submit" name="submit" style="background-color: grey;"></tr>
-                </table> 
-                
             </form>
         </div>
-        <div id="about">
-            <table id="tble">
-                <tr>
-                    <th><a href="about.html">About</a></th>
-                    <th><a href="contact.html">contact us</a></th>
-                    <th><a href="privacy.html">privacy policy</a></th>
-                </tr>
-                <tr>
-                    <th><a href="help.html">Help</a></th>
-                    <th><a href="advertisement.html">contact for advertisement</a></th>
-                    <th><a>copyright @aman_soni</a></th>
-                </tr>
-            </table>
-        </div>
-<script src="register.js"></script>
+    </div>
 </body>
-        
 </html>

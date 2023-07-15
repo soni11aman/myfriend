@@ -1,0 +1,18 @@
+body{
+    background-color: aqua;
+    font-size: 20px;
+    margin: auto;
+    width: auto;
+    height: auto;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.sign{
+    background-color: rgb(29, 189, 189);
+    width: 390px;
+    margin: auto;
+    text-align: center;
+    margin-top: 70px;
+    padding: 20px;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 5px ;
+}

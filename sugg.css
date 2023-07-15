@@ -1,0 +1,63 @@
+body{
+    background-color: aqua;
+    font-size: 40px;
+    margin: auto;
+    width: auto;
+    height: auto;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+#main{
+    width: auto;
+    text-align: center;
+    height:auto;
+    font-size: 63px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    background-color:blue;
+    border: 1px solid black;
+}
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+nav{
+    font-size: 40px;
+    background-color: cornflowerblue;
+    border-bottom: 0.5px dotted grey;
+}
+a{
+    color:rgb(52, 54, 170);
+    text-decoration: none;
+}
+a:hover{
+    color:rgb(43, 45, 134);
+}
+button{
+    height: 31px;
+    width: 85px;
+    background-color: cyan;
+}
+#ad{
+    padding-left: 15px;
+    font-size: 25px;
+}
+#tab{
+    width:100%;
+    height:auto;
+}
+.sugg{
+    width:60%;
+    line-height:40px;
+}
+.add_frnd{
+    width: 50px;
+    font-size: 60px;
+    background-color: red;
+}
